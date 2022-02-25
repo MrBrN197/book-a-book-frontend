@@ -2,7 +2,7 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => (
   <section className={styles.navbar}>
-    <h1>BookABook</h1>
+    <h1>Book A Book</h1>
     <ul className={styles.links}>
       <li><a href="/">BOOKS</a></li>
       <li><a href="/">MY RESERVATIONS</a></li>

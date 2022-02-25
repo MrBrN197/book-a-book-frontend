@@ -6,7 +6,7 @@ const App = () => (
   <div className={styles.App}>
     <Navbar />
     <main>
-      <p>Main Content</p>
+      <p>* main content here *</p>
     </main>
   </div>
 );
