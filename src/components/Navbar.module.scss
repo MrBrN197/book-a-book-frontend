@@ -1,13 +1,9 @@
 $green: #97bf0f;
 
 .navbar {
-  width: 20vw;
-  box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1);
-  height: 100vh;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   background-color: whitesmoke;
-  padding-left: 1rem;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 
   h1 {
@@ -18,13 +14,14 @@ $green: #97bf0f;
   }
 
   .links {
+    display: flex;
     font-weight: bold;
-    padding-bottom: 12rem;
+    align-items: center;
+    gap: 1rem;
 
     li a {
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
-      padding-left: 1rem;
+      display: block;
+      padding: 0.4rem;
       width: 100%;
       transition-property: background-color, color;
       transition-duration: 200ms;
@@ -41,6 +38,28 @@ $green: #97bf0f;
   }
 
   .copyright {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 725px) {
+  .navbar {
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1);
+    height: 100vh;
     padding-left: 1rem;
+    flex-direction: column;
+
+    .links {
+      flex-direction: column;
+      align-items: stretch;
+
+      li a {
+        padding: 0.6rem 1rem;
+      }
+    }
+
+    .copyright {
+      display: inline;
+    }
   }
 }
