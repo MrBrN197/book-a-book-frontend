@@ -1,6 +1,45 @@
+$green: #97bf0f;
 
 .navbar {
   width: 20vw;
   box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  background-color: whitesmoke;
   padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    font-family: Smooch, sans-serif;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+  }
+
+  .links {
+    font-weight: bold;
+
+    li a {
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      padding-left: 1rem;
+      width: 100%;
+      transition-property: background-color, color;
+      transition-duration: 200ms;
+
+      &:hover {
+        background-color: $green;
+        color: whitesmoke;
+      }
+    }
+  }
+
+  .social-icons {
+    background-color: red;
+  }
+
+  .copyright {
+    padding-left: 1rem;
+  }
 }

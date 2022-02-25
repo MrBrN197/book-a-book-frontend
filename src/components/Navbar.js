@@ -2,23 +2,23 @@ import styles from './Navbar.module.scss';
 
 const Navbar = () => (
   <section className={styles.navbar}>
-    <section>Navbar</section>
-    <ul className="links">
-      <li>BOOKS</li>
-      <li>LIFESTYLE</li>
-      <li>SHOP</li>
-      <li>TEST DRIVE</li>
+    <h1>BookABook</h1>
+    <ul className={styles.links}>
+      <li><a href="/">BOOKS</a></li>
+      <li><a href="/">MY RESERVATIONS</a></li>
+      <li><a href="/">ADD BOOK</a></li>
+      <li><a href="/">DELETE BOOK</a></li>
     </ul>
     <section>
-      <ul className="social-icons">
+      <ul className={styles.social}>
         <i className="" />
         <i className="" />
         <i className="" />
         <i className="" />
       </ul>
-      <p className="copyright">
-        &copy; 2015
-      </p>
+      <span className={styles.copyright}>
+        &copy; 2015 Copyright
+      </span>
     </section>
   </section>
 );
