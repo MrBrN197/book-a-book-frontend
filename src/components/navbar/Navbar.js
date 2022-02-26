@@ -8,8 +8,9 @@ const Navbar = () => (
       <ul className={styles.links}>
         <li><Link to="/books">BOOKS</Link></li>
         <li><Link to="/reservations">MY RESERVATIONS</Link></li>
-        <li><Link to="/books/add">ADD BOOK</Link></li>
-        <li><Link to="/books/delete">DELETE BOOK</Link></li>
+        <li><Link to="/books/new">ADD BOOK</Link></li>
+        <li><Link to="/books/remove">DELETE BOOK</Link></li>
+        <li><Link to="/reservations/new">RESERVE BOOK</Link></li>
       </ul>
       <section>
         <ul className={styles.social}>
