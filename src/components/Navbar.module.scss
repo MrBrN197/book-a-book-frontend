@@ -1,5 +1,16 @@
 $green: #97bf0f;
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 725px) {
+  .App {
+    flex-direction: row;
+  }
+}
+
 .navbar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   background-color: whitesmoke;

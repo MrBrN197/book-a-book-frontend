@@ -1,26 +1,30 @@
+import { Link, Outlet } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 
 const Navbar = () => (
-  <section className={styles.navbar}>
-    <h1>Book A Book</h1>
-    <ul className={styles.links}>
-      <li><a href="/">BOOKS</a></li>
-      <li><a href="/">MY RESERVATIONS</a></li>
-      <li><a href="/">ADD BOOK</a></li>
-      <li><a href="/">DELETE BOOK</a></li>
-    </ul>
-    <section>
-      <ul className={styles.social}>
-        <i className="" />
-        <i className="" />
-        <i className="" />
-        <i className="" />
+  <div className={styles.App}>
+    <section className={styles.navbar}>
+      <Link to="/"><h1>Book A Book</h1></Link>
+      <ul className={styles.links}>
+        <li><Link to="/books">BOOKS</Link></li>
+        <li><Link to="/reservations">MY RESERVATIONS</Link></li>
+        <li><Link to="/books/add">ADD BOOK</Link></li>
+        <li><Link to="/books/delete">DELETE BOOK</Link></li>
       </ul>
-      <span className={styles.copyright}>
-        &copy; 2015 Copyright
-      </span>
+      <section>
+        <ul className={styles.social}>
+          <i className="" />
+          <i className="" />
+          <i className="" />
+          <i className="" />
+        </ul>
+        <span className={styles.copyright}>
+          &copy; 2015 Copyright
+        </span>
+      </section>
     </section>
-  </section>
+    <Outlet />
+  </div>
 );
 
 export default Navbar;
