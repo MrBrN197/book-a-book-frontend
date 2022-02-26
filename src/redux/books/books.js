@@ -1,4 +1,4 @@
-import * as API from '../API';
+import * as API from '../../api/books-api';
 
 const GET_BOOKS = 'books/GET_BOOKS';
 const ADD_BOOK = 'books/ADD_BOOK';
@@ -39,15 +39,15 @@ const initialState = { books: [] };
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOKS: {
-      const { books } = action;
-      return { books };
+      const { data } = action.payload;
+      return { books: data };
     }
     case ADD_BOOK: {
       const books = [...state.books, action.payload];
-      return { ...state, books };
+      return { books };
     }
     case DELETE_BOOK: {
-      return state.filter((book) => book.id !== action.payload.id);
+      return { books: state.books.filter((book) => book.id !== action.payload.id) };
     }
     default:
       return state;

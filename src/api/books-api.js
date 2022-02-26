@@ -12,7 +12,7 @@ export const getBooks = async () => {
 };
 
 export const createBook = async (book) => {
-  const response = await api.get('/books', book);
+  const response = await api.post('/books', book);
   return response.data;
 };
 
