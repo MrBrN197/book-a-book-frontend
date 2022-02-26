@@ -9,17 +9,17 @@ export const fetchBooks = () => async (dispatch) => {
   if (books) {
     dispatch({
       type: GET_BOOKS,
-      payload: books,
+      payload: books.data,
     });
   }
 };
 
-export const addBook = (book) => ({
+const addBook = (book) => ({
   type: ADD_BOOK,
   payload: book,
 });
 
-export const removeBook = (id) => ({
+const removeBook = (id) => ({
   type: DELETE_BOOK,
   payload: id,
 });
@@ -34,20 +34,19 @@ export const deleteBook = (id) => async (dispatch) => {
   dispatch(removeBook(id));
 };
 
-const initialState = { books: [] };
+const initialState = [];
 
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOKS: {
-      const { data } = action.payload;
-      return { books: data };
+      return action.payload;
     }
     case ADD_BOOK: {
       const books = [...state.books, action.payload];
-      return { books };
+      return books;
     }
     case DELETE_BOOK: {
-      return { books: state.books.filter((book) => book.id !== action.payload.id) };
+      return state.filter((book) => book.id !== action.payload);
     }
     default:
       return state;
