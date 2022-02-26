@@ -9,7 +9,7 @@ const initialState = [];
 const getReservations = (reservations) => ({
   type: FETCH_RESERVATION,
   payload: reservations.data,
-})
+});
 
 const addReservation = (reservation) => ({
   type: ADD_RESERVATION,
@@ -21,9 +21,9 @@ const removeReservation = (id) => ({
   payload: id,
 });
 
-const updateReservation = (reservation) => ({
+const changeReservation = (reservation) => ({
   type: UPDATE_RESERVATION,
-  payload: reservation.data
+  payload: reservation.data,
 });
 
 export const fetchReservations = () => async (dispatch) => {
@@ -43,23 +43,24 @@ export const deleteReservation = (id) => async (dispatch) => {
 
 export const updateReservation = (reservation) => async (dispatch) => {
   const updatedReservation = await API.updateOneReservation(reservation);
-  dispatch(updateReservation(updatedReservation));
+  dispatch(changeReservation(updatedReservation));
 };
 
 const reservationsReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case FETCH_RESERVATION: 
+  switch (action.type) {
+    case FETCH_RESERVATION:
       return action.payload;
     case ADD_RESERVATION:
       return [...state, action.payload];
-    case UPDATE_RESERVATION:
-      const filteredArray = state.filter((reservation) => reservation.id !== action.payload.id)
+    case UPDATE_RESERVATION: {
+      const filteredArray = state.filter((reservation) => reservation.id !== action.payload.id);
       return [...filteredArray, action.payload];
+    }
     case DELETE_RESERVATION:
       return state.filter((reservation) => reservation.id !== action.payload);
     default:
       return state;
   }
-}
+};
 
 export default reservationsReducer;

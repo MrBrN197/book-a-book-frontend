@@ -22,6 +22,6 @@ export const deleteOneReservation = async (userId, reservationId) => {
 };
 
 export const updateOneReservation = async (userId, reservation) => {
-  const response = await api.put(`/users/${userId}/reservations`, reservation);;
+  const response = await api.put(`/users/${userId}/reservations`, reservation);
   return response.data;
 };
