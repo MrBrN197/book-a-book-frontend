@@ -1,0 +1,28 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: #1a1e24;
+  gap: 1rem;
+  color: whitesmoke;
+
+  input[type=text] {
+    outline: none;
+    border-radius: 0.4em;
+    padding: 0.6em 1em;
+    font-size: 1rem;
+    background-color: #0d1117;
+    pointer-events: all;
+    border: 1px solid #4a4d52;
+    transition: border 240ms;
+
+    &:focus-visible {
+      border-color: #1f6feb;
+      box-shadow: 0 0 0 3px #0c2d6b;
+    }
+  }
+}

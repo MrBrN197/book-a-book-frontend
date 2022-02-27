@@ -3,6 +3,7 @@ $green: #97bf0f;
 .App {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 @media screen and (min-width: 725px) {

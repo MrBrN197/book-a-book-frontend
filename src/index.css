@@ -22,6 +22,34 @@ ul {
   list-style-type: none;
 }
 
+button,
+input[type=submit] {
+  border: none;
+  padding: 0.4em 1em;
+  border-radius: 0.4em;
+}
+
+/* TODO: move to  */
+.btn {
+  cursor: pointer;
+  transition: background-color 240ms;
+}
+
+.btn-primary {
+  color: white;
+  background-color: rgb(54, 112, 37);
+}
+
+.btn-primary:active {
+  background-color: rgb(68, 131, 49);
+}
+
+/*  */
+
+.small {
+  font-size: 0.8em;
+}
+
 code {
   font-family:
     source-code-pro,
