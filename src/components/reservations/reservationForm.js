@@ -1,8 +1,10 @@
+import './reservation.css'
+
 const ReservationForm = () => (
   <>
     <main className="form-container">
-      <form>
-        <h2>Reserve this Amazing book</h2>
+      <form className='reservation-form'>
+        <h2 className="reservation-header">Reserve this Amazing book</h2>
         <hr />
         <p>Some text...</p>
         <input type='text' placeholder="City" id='city' />
