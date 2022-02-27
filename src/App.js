@@ -1,3 +1,4 @@
+import ReservationForm from './components/reservations/reservationForm';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
@@ -19,7 +20,7 @@ const App = () => (
         <Route path="reservations" element={<p>* reservations *</p>} />
         <Route path="*" element={<Error404 />} />
       </Route>
-      <Route path="reservations/new" element={<p>* reserve a book *</p>} />
+      <Route path="reservations/new" element={<ReservationForm />} />
     </Routes>
   </Router>
 );
