@@ -1,15 +1,56 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 const context = {
   user: null,
-  token: null,
 };
 
-export const setAuthToken = (token) => {
-  localStorage.setItem('token', token);
-  context.token = token;
+const TOKEN_NAME = '_token';
+
+const setAuthToken = (token) => {
+  localStorage.setItem(TOKEN_NAME, token);
 };
 
-export const setCurrentUser = (user) => {
+const getAuthToken = () => localStorage.getItem(TOKEN_NAME);
+
+export const setCurrentUser = (user, token) => {
+  if (token) setAuthToken(token);
   context.user = user;
 };
 
-export const getCurrentUser = () => context.user;
+export const useCurrentUser = () => {
+  const [user, setUser] = useState(null);
+  const token = getAuthToken();
+
+  useEffect(() => {
+    const authorizeUser = async () => {
+      const instance = axios.create({
+        baseURL: 'https://book-a-book-api.herokuapp.com',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const resp = await instance.post('token');
+      if (resp.status !== 200) throw new Error('dsfdasfsd');
+      const { data: { user: cUser } } = resp;
+      setCurrentUser(cUser);
+      setUser(cUser);
+    };
+
+    if (!token) {
+      setUser(false);
+      return;
+    }
+
+    if (context.user) {
+      console.log('user exists');
+      setUser(context.user);
+    } else {
+      console.log('fetching user');
+      authorizeUser();
+    }
+  }, []);
+
+  return user;
+};
