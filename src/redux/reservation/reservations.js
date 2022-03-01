@@ -31,8 +31,8 @@ export const fetchReservations = () => async (dispatch) => {
   dispatch(getReservations(reservations));
 };
 
-export const createReservation = (reservation) => async (dispatch) => {
-  const newReservation = await API.createNewReservation(reservation);
+export const createReservation = (userId, reservation) => async (dispatch) => {
+  const newReservation = await API.createNewReservation(userId, reservation);
   dispatch(addReservation(newReservation));
 };
 
