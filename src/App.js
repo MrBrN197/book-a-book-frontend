@@ -5,7 +5,7 @@ import Error404 from './components/errors/Error404';
 import AuthRoute from './components/auth/AuthRoute';
 import LoginPage from './components/auth/LoginPage';
 
-const MainPage = () => <div>Main Page</div>;
+const MainPage = () => <div>🐋 Main Page</div>;
 
 const App = () => (
   <Router>
