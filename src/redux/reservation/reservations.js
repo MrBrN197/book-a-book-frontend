@@ -26,8 +26,8 @@ const changeReservation = (reservation) => ({
   payload: reservation.data,
 });
 
-export const fetchReservations = () => async (dispatch) => {
-  const reservations = await API.getAllReservations();
+export const fetchReservations = (userId) => async (dispatch) => {
+  const reservations = await API.getAllReservations(userId);
   dispatch(getReservations(reservations));
 };
 
