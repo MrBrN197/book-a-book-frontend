@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { createReservation } from '../../redux/reservation/reservations';
+import { getCurrentUser } from '../auth/user';
 
 const ReservationForm = () => {
   const books = useSelector((state) => state.booksReducer);
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
+  const user = getCurrentUser();
 
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
@@ -22,12 +24,14 @@ const ReservationForm = () => {
   const reduceCharacter = (string) => (string.length >= 15 ? `${string.slice(0, 15)}...` : string);
 
   const selectForm = (
-    <select className="select-form" onChange={(e) => setBook(parseInt(e.target.value, 10))} value={book}>
-      <option className="option" value="0">Select a Book</option>
-      {books.map((book) => (
-        <option key={book.id} className="option" value={book.id}>{reduceCharacter(book.title)}</option>
-      ))}
-    </select>
+    <div className="select-div">
+      <select className="select-form" onChange={(e) => setBook(parseInt(e.target.value, 10))} value={book}>
+        <option className="option" value="0">Select a Book</option>
+        {books.map((book) => (
+          <option key={book.id} className="option" value={book.id}>{reduceCharacter(book.title)}</option>
+        ))}
+      </select>
+    </div>
   );
 
   const bookId = location.state ? location.state.id : book;
@@ -36,13 +40,12 @@ const ReservationForm = () => {
     e.preventDefault();
     if (city === '' || date === '' || book === '0') return;
     const formattedDate = date.replace('T', ' ');
-    const currentUser = 1;
     const newReservation = {
       city,
       reservation_date: formattedDate,
       book_id: bookId,
     };
-    dispatch(createReservation(currentUser, newReservation));
+    dispatch(createReservation(user.id, newReservation));
     setCity('');
     setDate('');
     setBook('0');
@@ -67,7 +70,9 @@ const ReservationForm = () => {
           <div className="form-controls d-flex">
             <input type="text" placeholder="CITY" id="city" onChange={(e) => setCity(e.target.value)} value={city} />
             {!location.state && selectForm}
-            <input ref={datetimeEl} type="datetime-local" id="date" onChange={(e) => setDate(e.target.value)} value={date} />
+            <div className="datetime">
+              <input ref={datetimeEl} type="datetime-local" id="date" onChange={(e) => setDate(e.target.value)} value={date} />
+            </div>
             <button type="submit" id="submit-btn">BOOK NOW</button>
           </div>
         </form>
