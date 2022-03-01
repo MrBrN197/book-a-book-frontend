@@ -1,17 +1,79 @@
-import './reservation.css'
+import './reservation.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { createReservation } from '../../redux/reservation/reservations';
 
-const ReservationForm = () => (
-  <>
-    <main className="form-container">
-      <form className='reservation-form'>
-        <h2 className="reservation-header">Reserve this Amazing book</h2>
-        <hr />
-        <p>Some text...</p>
-        <input type='text' placeholder="City" id='city' />
-        <button type="submit">Book Now</button>
-      </form>
-    </main>
-  </>
-)
+const ReservationForm = () => {
+  const books = useSelector((state) => state.booksReducer);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-export default ReservationForm
+  const [city, setCity] = useState('');
+  const [date, setDate] = useState('');
+  const [book, setBook] = useState(0);
+
+  const today = new Date().toISOString().slice(0, 16);
+
+  const datetimeEl = useRef(null);
+  if (datetimeEl.current) { datetimeEl.current.min = today; }
+
+  const reduceCharacter = (string) => (string.length >= 15 ? `${string.slice(0, 15)}...` : string);
+
+  const selectForm = (
+    <select className="select-form" onChange={(e) => setBook(parseInt(e.target.value, 10))} value={book}>
+      <option className="option" value="0">Select a Book</option>
+      {books.map((book) => (
+        <option key={book.id} className="option" value={book.id}>{reduceCharacter(book.title)}</option>
+      ))}
+    </select>
+  );
+
+  const bookId = location.state ? location.state.id : book;
+
+  const submitNewReservation = (e) => {
+    e.preventDefault();
+    if (city === '' || date === '' || book === '0') return;
+    const formattedDate = date.replace('T', ' ');
+    const currentUser = 1;
+    const newReservation = {
+      city,
+      reservation_date: formattedDate,
+      book_id: bookId,
+    };
+    dispatch(createReservation(currentUser, newReservation));
+    setCity('');
+    setDate('');
+    setBook('0');
+    const bookName = books.find((book) => book.id === bookId);
+    navigate('/reservations', { state: { notice: `You reserved ${bookName.title}` } });
+  };
+
+  return (
+    <>
+      <main className="form-container d-flex">
+        <form className="reservation-form" onSubmit={submitNewReservation}>
+          <h2 className="reservation-header">RESERVE THIS AMAZING BOOK</h2>
+          <hr className="line" align="center" />
+          <p className="description">
+            Do you love reading books? Do you know that reading reduces stress,
+            lowers blood pressure and heart rate?
+            Boost your knowledge,
+            enhance your imagination and improve your brain connectivity
+            by reserving one of these amazing books
+            {' '}
+          </p>
+          <div className="form-controls d-flex">
+            <input type="text" placeholder="CITY" id="city" onChange={(e) => setCity(e.target.value)} value={city} />
+            {!location.state && selectForm}
+            <input ref={datetimeEl} type="datetime-local" id="date" onChange={(e) => setDate(e.target.value)} value={date} />
+            <button type="submit" id="submit-btn">BOOK NOW</button>
+          </div>
+        </form>
+      </main>
+    </>
+  );
+};
+
+export default ReservationForm;
