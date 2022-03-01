@@ -1,27 +1,57 @@
-// import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
-import { setCurrentUser } from './user';
+import { useCurrentUser, setCurrentUser } from './user';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const user = useCurrentUser();
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (user) {
+      navigate('/', { state: { flash: 'already logged in' } });
+    }
+  }, [navigate, user]);
+
+  const [username, setUsername] = useState('');
+  const [errors, setErrors] = useState([]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setCurrentUser({ id: null });
-    console.log('navigating');
-    navigate('/', { state: { flash: { notice: 'Logged in Succesfully' } } });
+    axios.post(
+      'https://book-a-book-api.herokuapp.com/login',
+      { username },
+    ).then((resp) => {
+      const { data } = resp;
+      setCurrentUser(data.user, data.token);
+      navigate('/', { state: { flash: { notice: 'Logged in Succesfully' } } });
+    }).catch((err) => {
+      console.error(`STATUS CODE: [${err.response.status}]`);
+      setErrors(err.response.data.errors);
+    });
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
-      <label htmlFor="username">
-        <input type="text" name="username" id="username" placeholder="username" required autoComplete="off" />
-      </label>
-      <input className="btn-primary" type="submit" value="Login" />
-      <span className="small">dont have an account</span>
-      <input className="btn" type="submit" value="Create account" />
-    </form>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit}>
+        {errors.length > 0 && (
+        <div className={styles.error}>
+          { errors.map((e) => <span key={e}>{e.message}</span>) }
+        </div>
+        )}
+        <label htmlFor="username">
+          <span>Username</span>
+          <input type="text" onChange={(e) => setUsername(e.target.value)} name="username" id="username" required autoComplete="off" value={username} />
+        </label>
+        <input className={styles['btn-primary']} type="submit" value="Login" />
+        <div className={styles.text_small}>
+          Dont have an account?
+          <Link to="/sign_up">Sign Up</Link>
+        </div>
+      </form>
+    </div>
   );
 };
 
