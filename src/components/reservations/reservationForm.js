@@ -6,7 +6,7 @@ import { createReservation } from '../../redux/reservation/reservations';
 import { getCurrentUser } from '../auth/user';
 
 const ReservationForm = () => {
-  const books = useSelector((state) => state.booksReducer);
+  const { data: books } = useSelector((state) => state.booksReducer);
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +14,8 @@ const ReservationForm = () => {
 
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
-  const [book, setBook] = useState(0);
+  const [bookId, setBookId] = useState(location.state ? location.state.book_id : 0);
+  // const bookId = location.state ? location.state.book_id : book;
 
   const today = new Date().toISOString().slice(0, 16);
 
@@ -25,7 +26,7 @@ const ReservationForm = () => {
 
   const selectForm = (
     <div className="select-div">
-      <select className="select-form" onChange={(e) => setBook(parseInt(e.target.value, 10))} value={book}>
+      <select className="select-form" onChange={(e) => setBookId(parseInt(e.target.value, 10))} value={bookId}>
         <option className="option" value="0">Select a Book</option>
         {books.map((book) => (
           <option key={book.id} className="option" value={book.id}>{reduceCharacter(book.title)}</option>
@@ -34,11 +35,9 @@ const ReservationForm = () => {
     </div>
   );
 
-  const bookId = location.state ? location.state.id : book;
-
   const submitNewReservation = (e) => {
     e.preventDefault();
-    if (city === '' || date === '' || book === '0') return;
+    if (city === '' || date === '' || bookId === '0') return;
     const formattedDate = date.replace('T', ' ');
     const newReservation = {
       city,
@@ -48,7 +47,7 @@ const ReservationForm = () => {
     dispatch(createReservation(user.id, newReservation));
     setCity('');
     setDate('');
-    setBook('0');
+    setBookId('0');
     const bookName = books.find((book) => book.id === bookId);
     navigate('/reservations', { state: { notice: `You reserved ${bookName.title}` } });
   };

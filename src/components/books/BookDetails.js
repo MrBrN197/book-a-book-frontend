@@ -21,7 +21,7 @@ const BookDetails = () => {
       <aside>
         <h1>{book.title}</h1>
         <p>{book.author}</p>
-        <Link to="/" state={{ book_id: bookId }} className={styles['btn-primary']}>
+        <Link to="/reservations/new" state={{ book_id: parseInt(bookId, 10) }} className={styles['btn-primary']}>
           <span>Reserve</span>
           <CgChevronRightO size="1.5em" />
         </Link>
