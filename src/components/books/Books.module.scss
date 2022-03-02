@@ -1,0 +1,80 @@
+@use '../colors' as *;
+@use '../base';
+
+.books {
+  // width: 100vw;
+  overflow: clip;
+  position: relative;
+  min-height: 0;
+
+  @media screen and (min-width: 992px) {
+    min-width: 0;
+    height: 100%;
+  }
+
+  .nav-left,
+  .nav-right {
+    @extend .btn-primary;
+
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $green;
+    width: 6rem;
+    height: 4rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 0;
+
+    svg {
+      padding: 1rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .nav-left {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    left: 0;
+  }
+
+  .nav-right {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    right: 0;
+  }
+
+  .nav-left:disabled,
+  .nav-right:disabled {
+    background-color: rgb(192, 192, 192);
+  }
+
+  .transformed {
+    // width: 100vw;
+    height: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    @media screen and (min-width: 992px) {
+      width: 100%;
+    }
+
+    display: flex;
+    transition: transform 240ms;
+
+    & > * {
+      flex-shrink: 0;
+      width: 100%;
+      scroll-snap-align: start;
+
+      @media screen and (min-width: 992px) {
+        // min-width: 0;
+        width: 100%;
+        width: calc(100% / 3);
+      }
+    }
+  }
+}
