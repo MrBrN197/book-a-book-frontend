@@ -1,0 +1,15 @@
+.btn {
+  cursor: pointer;
+  transition: background-color 240ms;
+}
+
+.btn-primary {
+  @extend .btn;
+
+  color: white;
+  background-color: rgb(54, 112, 37);
+}
+
+.btn-primary:active {
+  background-color: rgb(68, 131, 49);
+}
