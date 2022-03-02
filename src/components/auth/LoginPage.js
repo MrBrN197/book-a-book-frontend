@@ -28,7 +28,6 @@ const LoginPage = () => {
       setCurrentUser(data.user, data.token);
       navigate('/', { state: { flash: { notice: 'Logged in Succesfully' } } });
     }).catch((err) => {
-      console.error(`STATUS CODE: [${err.response.status}]`);
       setErrors(err.response.data.errors);
     });
   };

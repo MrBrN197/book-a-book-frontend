@@ -1,0 +1,198 @@
+.d-flex {
+  display: flex;
+}
+
+:root {
+  --white: #fff;
+  --green: #97bf0f;
+}
+
+.form-container {
+  position: relative;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(/public/assets/Book_background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(150, 191, 15, 0.55);
+}
+
+.reservation-form {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.reservation-header {
+  color: var(--white);
+  text-align: center;
+}
+
+.line {
+  margin-top: 1rem;
+  opacity: 0.5;
+  background-color: var(--white);
+}
+
+.description {
+  text-align: justify;
+  color: var(--white);
+  line-height: 1.7rem;
+  font-size: 1.2rem;
+  margin: 1.3rem 0;
+}
+
+.form-controls {
+  flex-direction: column;
+}
+
+.select-div,
+.datetime {
+  position: relative;
+  display: block;
+}
+
+.select-div::after {
+  content: '\25BC';
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  bottom: 0;
+  padding: 0 1em;
+  background: transparent;
+  pointer-events: none;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.datetime::after {
+  content: '📅';
+  position: absolute;
+  top: 16px;
+  right: 0;
+  padding: 0 1em;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.select-div:hover::after {
+  color: var(--white);
+}
+
+input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+#city,
+#submit-btn,
+.datetime,
+.select-div {
+  padding: 1rem;
+  border: none;
+  border-radius: 35px;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+#city,
+.datetime,
+.select-div {
+  background-color: transparent;
+  border: 1.5px solid var(--white);
+}
+
+.select-form,
+#date {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  height: 100%;
+  background-color: transparent;
+  font-size: 1.3rem;
+  border: none;
+  font-weight: bold;
+}
+
+.select-form::-ms-expand,
+#date::-ms-expand {
+  display: none;
+}
+
+#submit-btn {
+  color: var(--green);
+  font-weight: bold;
+}
+
+#submit-btn:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+#city::placeholder,
+.select-form {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--white);
+  letter-spacing: 0.25rem;
+  opacity: 0.8;
+}
+
+#date {
+  font-weight: bold;
+  color: var(--white);
+  text-align: center;
+}
+
+.option {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .line {
+    margin: 1rem auto;
+    width: 50%;
+  }
+
+  .form-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      '. . .'
+      '. button .';
+    grid-gap: 1rem;
+    margin-top: 4.5rem;
+  }
+
+  #submit-btn {
+    grid-area: button;
+    margin-top: 2.5rem;
+  }
+
+  .select-div::after {
+    top: 1.3rem;
+    right: 2px;
+    font-size: 1rem;
+  }
+
+  .select-form {
+    text-align: start;
+    letter-spacing: 0;
+  }
+}

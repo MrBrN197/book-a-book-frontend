@@ -16,10 +16,8 @@ const AuthRoute = ({ Component }) => {
 
   if (userState === null) return <div>Loading...</div>;
   if (userState) {
-    console.log('authenticated!!!');
     return Component;
   }
-  console.log('redirecting!!!');
   return <Redirect />;
 };
 

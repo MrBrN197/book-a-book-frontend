@@ -1,10 +1,10 @@
 import * as API from '../../api/reservations-api';
 
-const FETCH_RESERVATION = 'book-a-book/reservations/GET_RESERVATION';
-const ADD_RESERVATION = 'book-a-book/reservations/ADD_RESERVATION';
-const UPDATE_RESERVATION = 'book-a-book/reservations/UPDATE_RESERVATION';
-const DELETE_RESERVATION = 'book-a-book/reservations/DELETE_RESERVATION';
-const initialState = [];
+export const FETCH_RESERVATION = 'book-a-book/reservations/GET_RESERVATION';
+export const ADD_RESERVATION = 'book-a-book/reservations/ADD_RESERVATION';
+export const UPDATE_RESERVATION = 'book-a-book/reservations/UPDATE_RESERVATION';
+export const DELETE_RESERVATION = 'book-a-book/reservations/DELETE_RESERVATION';
+export const initialState = [];
 
 const getReservations = (reservations) => ({
   type: FETCH_RESERVATION,
@@ -26,13 +26,13 @@ const changeReservation = (reservation) => ({
   payload: reservation.data,
 });
 
-export const fetchReservations = () => async (dispatch) => {
-  const reservations = await API.getAllReservations();
+export const fetchReservations = (userId) => async (dispatch) => {
+  const reservations = await API.getAllReservations(userId);
   dispatch(getReservations(reservations));
 };
 
-export const createReservation = (reservation) => async (dispatch) => {
-  const newReservation = await API.createNewReservation(reservation);
+export const createReservation = (userId, reservation) => async (dispatch) => {
+  const newReservation = await API.createNewReservation(userId, reservation);
   dispatch(addReservation(newReservation));
 };
 
@@ -54,7 +54,7 @@ const reservationsReducer = (state = initialState, action) => {
       return [...state, action.payload];
     case UPDATE_RESERVATION: {
       const filteredArray = state.filter((reservation) => reservation.id !== action.payload.id);
-      return [...filteredArray, action.payload];
+      return [...filteredArray, action.payload].sort((a, b) => a.id - b.id);
     }
     case DELETE_RESERVATION:
       return state.filter((reservation) => reservation.id !== action.payload);

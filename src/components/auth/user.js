@@ -18,6 +18,8 @@ export const setCurrentUser = (user, token) => {
   context.user = user;
 };
 
+export const getCurrentUser = () => context.user;
+
 export const useCurrentUser = () => {
   const [user, setUser] = useState(null);
   const token = getAuthToken();
@@ -44,10 +46,8 @@ export const useCurrentUser = () => {
     }
 
     if (context.user) {
-      console.log('user exists');
       setUser(context.user);
     } else {
-      console.log('fetching user');
       authorizeUser();
     }
   }, []);
