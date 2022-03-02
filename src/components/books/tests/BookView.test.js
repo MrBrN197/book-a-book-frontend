@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import BookView from './BookView';
+import BookView from '../BookView';
 
 test('renders BookView', () => {
   render(<BookView title="The Hunger Games" author="Suzanne Collins" image="https://image.com" />);
