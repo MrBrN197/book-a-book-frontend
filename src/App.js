@@ -1,6 +1,6 @@
+import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReservationForm from './components/reservations/ReservationForm';
-import './index.css';
 import Navbar from './components/navbar/Navbar';
 import Error404 from './components/errors/Error404';
 import AuthRoute from './components/auth/AuthRoute';
