@@ -1,5 +1,6 @@
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+/* eslint-disable-next-line */
 import ReservationForm from './components/reservations/ReservationForm';
 import Navbar from './components/navbar/Navbar';
 import Error404 from './components/errors/Error404';
