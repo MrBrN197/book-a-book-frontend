@@ -1,3 +1,5 @@
+@use './colors' as *;
+
 .btn {
   cursor: pointer;
   transition: background-color 240ms;
@@ -8,8 +10,9 @@
 
   color: white;
   background-color: rgb(54, 112, 37);
+  background-color: $green;
 }
 
 .btn-primary:active {
-  background-color: rgb(68, 131, 49);
+  background-color: lighten($green, 5%);
 }
