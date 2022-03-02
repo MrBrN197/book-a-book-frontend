@@ -3,7 +3,6 @@ import styles from './errors.module.scss';
 
 const Error404 = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <p className={styles.error}>
       <span>[404 Error] Path</span>

@@ -22,10 +22,10 @@
 .form-container::before {
   content: "";
   position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: rgba(150, 191, 15, 0.55);
 }
 
@@ -57,7 +57,8 @@
   flex-direction: column;
 }
 
-.select-div, .datetime {
+.select-div,
+.datetime {
   position: relative;
   display: block;
 }
@@ -105,12 +106,15 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-#city, .datetime, .select-div {
+#city,
+.datetime,
+.select-div {
   background-color: transparent;
   border: 1.5px solid var(--white);
 }
 
-.select-form, #date {
+.select-form,
+#date {
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -118,7 +122,6 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
   appearance: none;
   outline: 0;
   height: 100%;
-  width: 100%;
   background-color: transparent;
   font-size: 1.3rem;
   border: none;
@@ -140,7 +143,8 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
   color: var(--white);
 }
 
-#city::placeholder, .select-form {
+#city::placeholder,
+.select-form {
   text-align: center;
   font-weight: bold;
   font-size: 1.3rem;
@@ -169,8 +173,9 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
   .form-controls {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: '. . .'
-  					             '. button .';
+    grid-template-areas:
+      '. . .'
+      '. button .';
     grid-gap: 1rem;
     margin-top: 4.5rem;
   }
