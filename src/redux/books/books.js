@@ -34,19 +34,19 @@ export const deleteBook = (id) => async (dispatch) => {
   dispatch(removeBook(id));
 };
 
-const initialState = [];
+const initialState = { data: [], state: 'loading' };
 
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOKS: {
-      return action.payload;
+      return { data: action.payload, state: 'ready' };
     }
     case ADD_BOOK: {
-      const books = [...state.books, action.payload];
-      return books;
+      const books = [...state.data.books, action.payload];
+      return { data: books, state: 'ready' };
     }
     case DELETE_BOOK: {
-      return state.filter((book) => book.id !== action.payload);
+      return { data: state.filter((book) => book.id !== action.payload), state: 'ready' };
     }
     default:
       return state;

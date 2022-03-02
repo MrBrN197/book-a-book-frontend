@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { BsCaretRight, BsCaretLeft } from 'react-icons/bs';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import BookView from './BookView';
 import styles from './Books.module.scss';
 
@@ -9,11 +9,9 @@ const Books = () => {
   const { data: books, state } = useSelector((state) => state.booksReducer);
   const carouselEl = useRef(null);
 
-  const maxLimit = (books.length - 1) * 100;
   if (state === 'loading') return <div>loading</div>;
 
   const handleClick = (dir) => {
-    console.log('dir', dir);
     if (!carouselEl.current) return;
     if (dir === 'left') carouselEl.current.scrollLeft -= carouselEl.current.offsetWidth;
     else if (dir === 'right') carouselEl.current.scrollLeft += carouselEl.current.offsetWidth;
