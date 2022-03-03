@@ -67,7 +67,7 @@ const BookForm = () => {
 
   return (
     <>
-      <main className="form-container d-flex">
+      <main className="book-form-container d-flex">
         <form className="book-form" onSubmit={submitNewBook}>
           <h1 className="book-header">Create Your Book</h1>
           <hr className="line" align="center" />
@@ -79,7 +79,7 @@ const BookForm = () => {
             having access to this book.
             {' '}
           </p>
-          <div className="form-controls d-flex">
+          <div className="book-form-controls d-flex">
             <input type="text" placeholder="Title" id="title" onChange={(e) => setTitle(e.target.value)} value={title} required />
             <input type="text" placeholder="Author" id="author" onChange={(e) => setAuthor(e.target.value)} value={author} required />
             <input type="text" placeholder="Genre" id="genre" onChange={(e) => setGenre(e.target.value)} value={genre} required />

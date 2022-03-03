@@ -1,10 +1,15 @@
+:root {
+  --white: #fff;
+  --green: #97bf0f;
+}
+
 .d-flex {
   display: flex;
 }
 
-.form-container {
+.book-form-container {
   position: relative;
-  height: 100vh;
+  height: 200vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -14,7 +19,7 @@
   background-attachment: fixed;
 }
 
-.form-container::before {
+.book-form-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -27,6 +32,7 @@
 .book-header {
   color: var(--white);
   text-align: center;
+  font-family: 'Italianno', cursive;
 }
 
 .book-form {
@@ -35,8 +41,12 @@
   margin-top: 5rem;
 }
 
+.book-form-controls {
+  flex-direction: column;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-inner-spin-button {    
+input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
@@ -99,10 +109,36 @@ textarea {
   font-size: 1.1rem;
   resize: none;
   padding: 0.75rem 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 textarea::placeholder {
   color: var(--white);
   text-align: center;
-  line-height: 9.43rem;
+  line-height: 8.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .book-form-container {
+    background-attachment: unset;
+  }
+
+  .book-form-controls {
+    align-items: center;
+    justify-content: center;
+  }
+
+  #title,
+  #author,
+  #genre,
+  #price,
+  #rating,
+  #image {
+    width: 50%;
+  }
+
+  #submit-btn {
+    width: 20rem;
+    margin-top: 1rem;
+  }
 }

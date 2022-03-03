@@ -13,7 +13,7 @@ const ReservationsPage = () => {
 
   useEffect(() => {
     dispatch(fetchReservations(user.id));
-  }, [user.id]);
+  }, [dispatch, user.id]);
 
   return (
     <>

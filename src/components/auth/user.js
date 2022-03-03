@@ -50,7 +50,7 @@ export const useCurrentUser = () => {
     } else {
       authorizeUser();
     }
-  }, []);
+  }, [token]);
 
   return user;
 };
