@@ -5,6 +5,8 @@
 :root {
   --white: #fff;
   --green: #97bf0f;
+  --italianno: 'Italianno', cursive;
+  --gray: rgb(150, 150, 150);
 }
 
 .form-container {
@@ -185,6 +187,86 @@ input:-webkit-autofill:active {
 
 .none {
   display: none;
+}
+
+.reservationview-container {
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+  padding: 2rem;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.img-placeholder {
+  overflow: hidden;
+  flex-grow: 1;
+  width: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+
+.details-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-basis: 40%;
+}
+
+.book-details, .reservation-details {
+  flex-direction: column;
+}
+
+.book-details h1 {
+  padding: 1rem 0 0.5rem 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.by {
+  font-size: 2rem;
+  font-family: var(--italianno);
+  font-weight: bold;
+}
+
+.author {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+.reservation-date {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--italianno);
+  font-weight: bold;
+}
+
+.word-date {
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.city {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.price {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-bottom: 4px dotted rgba(150, 150, 150, 0.4);
+  padding-bottom: 1rem;
 }
 
 @media screen and (min-width: 768px) {
