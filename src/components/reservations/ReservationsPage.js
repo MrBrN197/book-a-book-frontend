@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { fetchReservations } from '../../redux/reservation/reservations';
 import { getCurrentUser } from '../auth/user';
 import ReservationView from './ReservationView';
+import Carousel from '../views/Carousel';
 
 const ReservationsPage = () => {
   const { booksReducer: { data: books }, reservationsReducer } = useSelector((state) => state);
@@ -20,12 +21,12 @@ const ReservationsPage = () => {
   return (
     <>
       <p className={noticeClass}>{location.state?.notice || ''}</p>
-      <>
+      <Carousel>
         {reservationsReducer.map((reservation) => {
           const book = books.find((book) => book.id === reservation.book_id);
           return <ReservationView reservation={reservation} book={book} key={reservation.id} />;
         })}
-      </>
+      </Carousel>
     </>
   );
 };
