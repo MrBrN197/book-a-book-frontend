@@ -110,7 +110,9 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
 .datetime,
 .select-div {
   background-color: transparent;
+  color: var(--white);
   border: 1.5px solid var(--white);
+  outline: 0;
 }
 
 .select-form,
@@ -151,6 +153,14 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
   color: var(--white);
   letter-spacing: 0.25rem;
   opacity: 0.8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px var(--green) inset !important;
+  -webkit-text-fill-color: var(--white) !important;
 }
 
 #date {

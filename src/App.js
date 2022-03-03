@@ -9,6 +9,7 @@ import LoginPage from './components/auth/LoginPage';
 import ReservationsPage from './components/reservations/ReservationsPage';
 import Books from './components/books/Books';
 import BookDetails from './components/books/BookDetails';
+import BookForm from './components/books/BookForm';
 
 const MainPage = () => <div>🐋 Main Page</div>;
 
@@ -20,7 +21,7 @@ const App = () => (
         <Route index element={<AuthRoute Component={<MainPage />} />} />
         <Route path="books" element={<Books />} />
         <Route path="books/:book_id" element={<BookDetails />} />
-        <Route path="books/new" element={<p>Add Book</p>} />
+        <Route path="books/new" element={<BookForm />} />
         <Route path="books/remove" element={<p>* delete book *</p>} />
         <Route path="reservations" element={<AuthRoute Component={<ReservationsPage />} />} />
         <Route path="*" element={<Error404 />} />
