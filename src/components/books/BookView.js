@@ -13,11 +13,13 @@ const BookView = ({
     </div>
     <div className={styles.details}>
       <h1>{title}</h1>
-      <p>{author}</p>
-      <div className={styles.social}>
-        <div className={styles.icon}><FaFacebookF /></div>
-        <div className={styles.icon}><FaTwitter /></div>
-        <div className={styles.icon}><FaInstagram /></div>
+      <div>
+        <p>{author}</p>
+        <div className={styles.social}>
+          <div className={styles.icon}><FaFacebookF /></div>
+          <div className={styles.icon}><FaTwitter /></div>
+          <div className={styles.icon}><FaInstagram /></div>
+        </div>
       </div>
     </div>
   </div>
