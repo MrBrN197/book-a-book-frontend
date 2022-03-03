@@ -13,7 +13,7 @@ const Books = () => {
         ({
           id, title, author, image,
         }) => (
-          <Link to={`${id}`} key={title + author}>
+          <Link to={`${id}`} key={id}>
             <BookView
               title={title}
               author={author}

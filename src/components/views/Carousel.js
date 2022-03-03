@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import { useRef } from 'react';
 import { BsCaretRight, BsCaretLeft } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 import styles from './Carousel.module.scss';
 
 const Carousel = ({ children }) => {
@@ -14,7 +14,7 @@ const Carousel = ({ children }) => {
   };
 
   return (
-    <div className={styles.books}>
+    <div className={styles.carousel}>
       <div ref={carouselEl} className={styles.transformed}>
         {children}
       </div>
@@ -22,6 +22,10 @@ const Carousel = ({ children }) => {
       <button className={styles['nav-right']} aria-label="nav-right" type="button" onClick={() => handleClick('right')}><BsCaretRight /></button>
     </div>
   );
+};
+
+Carousel.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 export default Carousel;
