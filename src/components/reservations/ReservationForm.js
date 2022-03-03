@@ -15,7 +15,6 @@ const ReservationForm = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [bookId, setBookId] = useState(location.state ? location.state.book_id : 0);
-  // const bookId = location.state ? location.state.book_id : book;
 
   const today = new Date().toISOString().slice(0, 16);
 
