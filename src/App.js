@@ -14,7 +14,6 @@ import BookForm from './components/books/BookForm';
 
 import RemoveBookPage from './components/books/RemoveBookPage';
 
-
 const MainPage = () => <div>🐋 Main Page</div>;
 
 const App = () => (
