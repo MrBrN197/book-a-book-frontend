@@ -1,7 +1,7 @@
 @use '../colors' as *;
 @use '../base';
 
-.books {
+.carousel {
   // width: 100vw;
   overflow: clip;
   position: relative;
@@ -12,6 +12,8 @@
     height: 100%;
   }
 
+  $nav-width: 6rem;
+
   .nav-left,
   .nav-right {
     @extend .btn-primary;
@@ -21,7 +23,7 @@
     top: 50%;
     transform: translateY(-50%);
     background-color: $green;
-    width: 6rem;
+    width: $nav-width;
     height: 4rem;
     color: white;
     cursor: pointer;
@@ -53,6 +55,7 @@
 
   .transformed {
     // width: 100vw;
+    display: flex;
     height: 100%;
     flex-grow: 0;
     overflow-x: scroll;
@@ -60,12 +63,9 @@
     scroll-snap-type: x mandatory;
 
     @media screen and (min-width: 992px) {
-      width: calc(100% - 12rem);
+      width: calc(100% - ($nav-width * 2));
       margin: 0 auto;
     }
-
-    display: flex;
-    transition: transform 240ms;
 
     > * {
       flex-shrink: 0;

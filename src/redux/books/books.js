@@ -30,8 +30,8 @@ export const createBook = (book) => async (dispatch) => {
 };
 
 export const deleteBook = (id) => async (dispatch) => {
-  await API.deleteBook(id);
-  dispatch(removeBook(id));
+  const removed = await API.deleteBook(id);
+  if (removed) dispatch(removeBook(id));
 };
 
 const initialState = { data: [], state: 'loading' };
@@ -46,7 +46,7 @@ const booksReducer = (state = initialState, action) => {
       return { data: books, state: 'ready' };
     }
     case DELETE_BOOK: {
-      return { data: state.filter((book) => book.id !== action.payload), state: 'ready' };
+      return { data: state.data.filter((book) => book.id !== action.payload), state: 'ready' };
     }
     default:
       return state;

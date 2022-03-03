@@ -18,5 +18,5 @@ export const createBook = async (book) => {
 
 export const deleteBook = async (id) => {
   const response = await api.delete(`/books/${id}`);
-  return response.status === 204;
+  return response.status === 200;
 };

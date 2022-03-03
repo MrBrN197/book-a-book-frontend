@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Books from '../Books';
+import Books from '../BooksPage';
 
 jest.mock('react-redux');
 jest.mock('react-router-dom', () => ({
