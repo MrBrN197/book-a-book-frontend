@@ -21,7 +21,7 @@ const ReservationsPage = () => {
   return (
     <>
       <p className={noticeClass}>{location.state?.notice || ''}</p>
-      <Carousel>
+      <Carousel posY={60}>
         {reservationsReducer.map((reservation) => {
           const book = books.find((book) => book.id === reservation.book_id);
           return <ReservationView reservation={reservation} book={book} key={reservation.id} />;
