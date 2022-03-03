@@ -9,18 +9,21 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const user = useCurrentUser();
 
+  const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
+
   useEffect(() => {
     if (user) {
       navigate('/', { state: { flash: 'already logged in' } });
     }
   }, [navigate, user]);
 
-  const [username, setUsername] = useState('');
-  const [errors, setErrors] = useState([]);
-
   const handleSubmit = async (e) => {
+    if (loading) return;
+    setLoading(true);
     e.preventDefault();
-    axios.post(
+    const login = () => axios.post(
       'https://book-a-book-api.herokuapp.com/login',
       { username },
     ).then((resp) => {
@@ -30,6 +33,8 @@ const LoginPage = () => {
     }).catch((err) => {
       setErrors(err.response.data.errors);
     });
+    await login();
+    setLoading(false);
   };
 
   return (
@@ -44,7 +49,7 @@ const LoginPage = () => {
           <span>Username</span>
           <input type="text" onChange={(e) => setUsername(e.target.value)} name="username" id="username" required autoComplete="off" value={username} />
         </label>
-        <input className={styles['btn-primary']} type="submit" value="Login" />
+        <input disabled={loading} className={styles['btn-primary']} type="submit" value="Login" />
         <div className={styles.text_small}>
           Dont have an account?
           <Link to="/sign_up">Sign Up</Link>

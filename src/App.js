@@ -7,8 +7,9 @@ import Error404 from './components/errors/Error404';
 import AuthRoute from './components/auth/AuthRoute';
 import LoginPage from './components/auth/LoginPage';
 import ReservationsPage from './components/reservations/ReservationsPage';
-import Books from './components/books/Books';
+import BooksPage from './components/books/BooksPage';
 import BookDetails from './components/books/BookDetails';
+import RemoveBook from './components/books/RemoveBook';
 
 const MainPage = () => <div>🐋 Main Page</div>;
 
@@ -18,10 +19,10 @@ const App = () => (
       <Route path="/" element={<Navbar />}>
         <Route path="login" element={<LoginPage />} />
         <Route index element={<AuthRoute Component={<MainPage />} />} />
-        <Route path="books" element={<Books />} />
+        <Route path="books" element={<BooksPage />} />
         <Route path="books/:book_id" element={<BookDetails />} />
         <Route path="books/new" element={<p>Add Book</p>} />
-        <Route path="books/remove" element={<p>* delete book *</p>} />
+        <Route path="books/remove" element={<p><RemoveBook /></p>} />
         <Route path="reservations" element={<AuthRoute Component={<ReservationsPage />} />} />
         <Route path="*" element={<Error404 />} />
       </Route>
