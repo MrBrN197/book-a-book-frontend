@@ -3,7 +3,7 @@ import { BsCaretRight, BsCaretLeft } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import styles from './Carousel.module.scss';
 
-const Carousel = ({ children }) => {
+const Carousel = ({ children, posY }) => {
   const carouselEl = useRef(null);
 
   const handleClick = (dir) => {
@@ -18,14 +18,19 @@ const Carousel = ({ children }) => {
       <div ref={carouselEl} className={styles.transformed}>
         {children}
       </div>
-      <button className={styles['nav-left']} aria-label="nav-left" type="button" onClick={() => handleClick('left')}><BsCaretLeft /></button>
-      <button className={styles['nav-right']} aria-label="nav-right" type="button" onClick={() => handleClick('right')}><BsCaretRight /></button>
+      <button style={{ top: `${posY}%` }} className={styles['nav-left']} aria-label="nav-left" type="button" onClick={() => handleClick('left')}><BsCaretLeft /></button>
+      <button style={{ top: `${posY}%` }} className={styles['nav-right']} aria-label="nav-right" type="button" onClick={() => handleClick('right')}><BsCaretRight /></button>
     </div>
   );
 };
 
+Carousel.defaultProps = {
+  posY: 50,
+};
+
 Carousel.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  posY: PropTypes.number,
 };
 
 export default Carousel;
