@@ -15,9 +15,11 @@ const ReservationsPage = () => {
     dispatch(fetchReservations(user.id));
   }, [dispatch, user.id]);
 
+  const noticeClass = location.state ? 'flash-notice' : 'none';
+
   return (
     <>
-      <p>{location.state?.notice || ''}</p>
+      <p className={noticeClass}>{location.state?.notice || ''}</p>
       <>
         {reservationsReducer.map((reservation) => {
           const book = books.find((book) => book.id === reservation.book_id);
