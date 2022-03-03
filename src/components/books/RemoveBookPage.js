@@ -1,33 +1,30 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import BookView from './BookView';
 import Carousel from '../views/Carousel';
+import styles from './RemoveBookPage.module.scss';
+import { deleteBook } from '../../redux/books/books';
 
 const RemoveBook = () => {
   const { data: books } = useSelector((state) => state.booksReducer);
+  const dispatch = useDispatch();
 
-  const handleClick = () => {
-
+  const handleClick = (bookId) => {
+    dispatch(deleteBook(bookId));
+    alert(`Removed Book With Id ${bookId}`);
   };
-
-  // const style = {
-  //   height: '100%',
-  //   width: '100%',
-  // };
 
   return (
     <Carousel>
       {books.map(({
         id, title, author, image,
       }) => (
-        <div key={id}>
-          <div>
-            <BookView
-              title={title}
-              author={author}
-              image={image}
-            />
-          </div>
-          <button type="button" onClick={handleClick}>Delete Book</button>
+        <div key={id} className={styles.remove}>
+          <BookView
+            title={title}
+            author={author}
+            image={image}
+          />
+          <button type="button" className={styles.btn} onClick={() => handleClick(id)}>Delete Book</button>
         </div>
       ))}
     </Carousel>
