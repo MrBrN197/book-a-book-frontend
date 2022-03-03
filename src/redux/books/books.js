@@ -26,7 +26,7 @@ const removeBook = (id) => ({
 
 export const createBook = (book) => async (dispatch) => {
   const newbook = await API.createBook(book);
-  dispatch(addBook(newbook));
+  dispatch(addBook(newbook.data));
 };
 
 export const deleteBook = (id) => async (dispatch) => {
@@ -42,7 +42,7 @@ const booksReducer = (state = initialState, action) => {
       return { data: action.payload, state: 'ready' };
     }
     case ADD_BOOK: {
-      const books = [...state.data.books, action.payload];
+      const books = [...state.data, action.payload];
       return { data: books, state: 'ready' };
     }
     case DELETE_BOOK: {
