@@ -292,17 +292,20 @@ img {
 
   .select-div::after {
     top: 1.3rem;
-    right: 2px;
+    right: 12px;
     font-size: 1rem;
   }
 
   .select-form {
-    text-align: start;
+    text-align: center;
     letter-spacing: 0;
   }
 }
 
 @media screen and (min-width: 992px) {
+  .reservationview-container {
+    width: 100% !important;
+  }
   .details-div {
     flex-basis: 60%;
   }
