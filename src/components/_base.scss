@@ -3,6 +3,10 @@
 .btn {
   cursor: pointer;
   transition: background-color 240ms;
+
+  &:disabled {
+    background-color: rgb(119, 119, 119);
+  }
 }
 
 .btn-primary {
