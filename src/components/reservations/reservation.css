@@ -301,3 +301,17 @@ img {
     letter-spacing: 0;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .details-div {
+    flex-basis: 60%;
+  }
+
+  .reservation-details {
+    flex-basis: 30%;
+  }
+
+  .book-details {
+    flex-basis: 30%;
+  }
+}
