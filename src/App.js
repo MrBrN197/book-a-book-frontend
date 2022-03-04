@@ -19,11 +19,10 @@ const App = () => (
       <Route path="/" element={<Navbar />}>
         <Route index element={<AuthRoute Component={<BookDetails />} />} />
         <Route path="login" element={<LoginPage />} />
-        <Route path="books" element={<BooksPage />} />
-        <Route path="books/:book_id" element={<BookDetails />} />
-        <Route path="books/new" element={<BookForm />} />
-        <Route path="books/remove" element={<RemoveBookPage />} />
-
+        <Route path="books" element={<AuthRoute Component={<BooksPage />} />} />
+        <Route path="books/:book_id" element={<AuthRoute Component={<BookDetails />} />} />
+        <Route path="books/new" element={<AuthRoute Component={<BookForm />} />} />
+        <Route path="books/remove" element={<AuthRoute Component={<RemoveBookPage />} />} />
         <Route path="reservations" element={<AuthRoute Component={<ReservationsPage />} />} />
         <Route path="*" element={<Error404 />} />
       </Route>
