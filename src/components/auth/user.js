@@ -16,6 +16,7 @@ const getAuthToken = () => localStorage.getItem(TOKEN_NAME);
 export const setCurrentUser = (user, token) => {
   if (token) setAuthToken(token);
   context.user = user;
+  if (user === null) localStorage.removeItem(TOKEN_NAME);
 };
 
 export const getCurrentUser = () => context.user;

@@ -12,6 +12,7 @@ import BookDetails from './components/books/BookDetails';
 import BookForm from './components/books/BookForm';
 
 import RemoveBookPage from './components/books/RemoveBookPage';
+import SignUpPage from './components/auth/SignUpPage';
 
 const App = () => (
   <Router>
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/" element={<Navbar />}>
         <Route index element={<AuthRoute Component={<BooksPage />} />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="sign_up" element={<SignUpPage />} />
         <Route path="books" element={<AuthRoute Component={<BooksPage />} />} />
         <Route path="books/:book_id" element={<AuthRoute Component={<BookDetails />} />} />
         <Route path="books/new" element={<AuthRoute Component={<BookForm />} />} />

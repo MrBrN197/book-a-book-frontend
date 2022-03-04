@@ -16,6 +16,7 @@ const ReservationsPage = () => {
     dispatch(fetchReservations(user.id));
   }, [dispatch, user.id]);
 
+  if (reservationsReducer.length === 0) return <div> You Have No Reservations Created </div>;
   const noticeClass = location.state ? 'flash-notice' : 'none';
 
   return (

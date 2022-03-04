@@ -1,12 +1,18 @@
-import { Link, Outlet } from 'react-router-dom';
+import {
+  Link, Navigate, Outlet, useNavigate,
+} from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
 import styles from './Navbar.module.scss';
 import '../index.scss';
+import { setCurrentUser, getCurrentUser } from '../auth/user';
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const navigate = useNavigate();
+  const user = getCurrentUser();
+
   const toggleNavbar = () => {
     setNavbarOpen((s) => !s);
   };
@@ -23,6 +29,12 @@ const Navbar = () => {
     ['RESERVE BOOK', 'reservations/new'],
   ];
 
+  const logOut = () => {
+    setCurrentUser(null, null);
+    closeModal();
+    window.location.reload();
+  };
+
   return (
     <div className={styles.App}>
       <section className={styles.navbar}>
@@ -33,6 +45,7 @@ const Navbar = () => {
           {links.map(([text, link]) => (
             <li key={text}><Link to={link} onClick={closeModal}>{text}</Link></li>
           ))}
+          {user && <button type="submit" onClick={logOut}>Logout</button>}
         </ul>
         <section className="desktop-only">
           <ul className={styles.social}>
