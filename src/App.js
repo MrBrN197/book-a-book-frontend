@@ -17,7 +17,7 @@ const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<Navbar />}>
-        <Route index element={<AuthRoute Component={<BookDetails />} />} />
+        <Route index element={<AuthRoute Component={<BooksPage />} />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="books" element={<AuthRoute Component={<BooksPage />} />} />
         <Route path="books/:book_id" element={<AuthRoute Component={<BookDetails />} />} />

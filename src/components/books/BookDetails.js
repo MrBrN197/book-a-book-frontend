@@ -3,14 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import { CgChevronRightO } from 'react-icons/cg';
 import { FaStar } from 'react-icons/fa';
 import styles from './BookDetails.module.scss';
-import Error404 from '../errors/Error404';
 
 const BookDetails = () => {
   const { book_id: bookId } = useParams();
   const { state, data: books } = useSelector((state) => state.booksReducer);
   if (state === 'loading') return <div>Loading</div>;
   const book = books.find((b) => b.id === parseInt(bookId, 10));
-  if (!book) return <Error404 />;
+  if (!book) return <div>Book does not exist</div>;
 
   const numStars = Math.round(parseInt(book.rating, 10));
   const stars = new Array(numStars).fill(0).map((_, idx) => idx);

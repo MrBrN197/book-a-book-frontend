@@ -1,4 +1,17 @@
+@use '../colors' as *;
+
 @import '../base';
+
+.errorMessage {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: $green;
+  border-radius: 0.4em;
+  padding: 0.6em;
+  color: white;
+  margin-top: 1rem;
+}
 
 .remove {
   position: relative;

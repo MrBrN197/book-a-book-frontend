@@ -28,5 +28,7 @@
 }
 
 .btn-danger:active {
-  background-color: lighten(crimson, 5%);
+  $crimson: crimson;
+
+  background-color: lighten($crimson, 5%);
 }
