@@ -43,6 +43,11 @@ const BookForm = () => {
 
   const submitNewBook = async (e) => {
     e.preventDefault();
+    if (e.target['image-upload'].files.length === 0) {
+      alert('image is required');
+      return;
+    }
+
     const file = e.target['image-upload'].files[0];
     const link = await uploadImage(file);
     if (!link) return;
@@ -80,16 +85,16 @@ const BookForm = () => {
             {' '}
           </p>
           <div className="book-form-controls d-flex">
-            <input type="text" placeholder="Title" id="title" onChange={(e) => setTitle(e.target.value)} value={title} required />
-            <input type="text" placeholder="Author" id="author" onChange={(e) => setAuthor(e.target.value)} value={author} required />
-            <input type="text" placeholder="Genre" id="genre" onChange={(e) => setGenre(e.target.value)} value={genre} required />
-            <input type="number" placeholder="Price" id="price" onChange={(e) => setPrice(e.target.value)} value={price} min="1" max="999" required />
-            <input type="number" placeholder="Rating" id="rating" onChange={(e) => setRating(e.target.value)} value={rating} required />
+            <input type="text" placeholder="Title" id="title" name="title" onChange={(e) => setTitle(e.target.value)} value={title} required />
+            <input type="text" placeholder="Author" id="author" name="author" onChange={(e) => setAuthor(e.target.value)} value={author} required />
+            <input type="text" placeholder="Genre" id="genre" name="genre" onChange={(e) => setGenre(e.target.value)} value={genre} required />
+            <input type="number" step="0.01" placeholder="Price" id="price" name="price" onChange={(e) => setPrice(e.target.value)} value={price} min="0" max="999" required />
+            <input type="number" step="0.01" placeholder="Rating" id="rating" name="rating" onChange={(e) => setRating(e.target.value)} value={rating} min="0" max="5" required />
             <button type="button" onClick={handleClick} id="image">Upload Image</button>
             <p className="image-name">{imageName}</p>
-            <input type="file" id="image-upload" accept="image/png, image/jpeg, image/svg" ref={hiddenFileInput} onChange={handleChange} required />
-            <textarea placeholder="Description..." id="text-description" onChange={(e) => setDescription(e.target.value)} value={description} />
-            <button type="submit" id="submit-btn">BOOK NOW</button>
+            <input type="file" id="image-upload" name="image-upload" accept="image/png, image/jpeg, image/svg" ref={hiddenFileInput} onChange={handleChange} />
+            <textarea placeholder="Description..." id="text-description" name="text-description" onChange={(e) => setDescription(e.target.value)} value={description} required />
+            <button type="submit" id="submit-btn" name="submit-btn">BOOK NOW</button>
           </div>
 
         </form>

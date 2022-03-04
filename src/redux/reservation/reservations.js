@@ -27,23 +27,43 @@ const changeReservation = (reservation) => ({
 });
 
 export const fetchReservations = (userId) => async (dispatch) => {
-  const reservations = await API.getAllReservations(userId);
-  dispatch(getReservations(reservations));
+  try {
+    const reservations = await API.getAllReservations(userId);
+    dispatch(getReservations(reservations));
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export const createReservation = (userId, reservation) => async (dispatch) => {
-  const newReservation = await API.createNewReservation(userId, reservation);
-  dispatch(addReservation(newReservation));
+  try {
+    const newReservation = await API.createNewReservation(userId, reservation);
+    dispatch(addReservation(newReservation));
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export const deleteReservation = (userId, id) => async (dispatch) => {
-  await API.deleteOneReservation(userId, id);
-  dispatch(removeReservation(id));
+  try {
+    await API.deleteOneReservation(userId, id);
+    dispatch(removeReservation(id));
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export const updateReservation = (reservation) => async (dispatch) => {
-  const updatedReservation = await API.updateOneReservation(reservation);
-  dispatch(changeReservation(updatedReservation));
+  try {
+    const updatedReservation = await API.updateOneReservation(reservation);
+    dispatch(changeReservation(updatedReservation));
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 const reservationsReducer = (state = initialState, action) => {

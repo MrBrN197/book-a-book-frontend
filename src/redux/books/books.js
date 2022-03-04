@@ -4,16 +4,6 @@ export const GET_BOOKS = 'books/GET_BOOKS';
 const ADD_BOOK = 'books/ADD_BOOK';
 const DELETE_BOOK = 'books/REMOVE_BOOK';
 
-export const fetchBooks = () => async (dispatch) => {
-  const books = await API.getBooks();
-  if (books) {
-    dispatch({
-      type: GET_BOOKS,
-      payload: books.data,
-    });
-  }
-};
-
 const addBook = (book) => ({
   type: ADD_BOOK,
   payload: book,
@@ -24,14 +14,40 @@ const removeBook = (id) => ({
   payload: id,
 });
 
+export const fetchBooks = () => async (dispatch) => {
+  try {
+    const books = await API.getBooks();
+    if (books) {
+      dispatch({
+        type: GET_BOOKS,
+        payload: books.data,
+      });
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+};
+
 export const createBook = (book) => async (dispatch) => {
-  const newbook = await API.createBook(book);
-  dispatch(addBook(newbook.data));
+  try {
+    const newbook = await API.createBook(book);
+    dispatch(addBook(newbook.data));
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export const deleteBook = (id) => async (dispatch) => {
-  const removed = await API.deleteBook(id);
-  if (removed) dispatch(removeBook(id));
+  try {
+    const removed = await API.deleteBook(id);
+    if (removed) dispatch(removeBook(id));
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 const initialState = { data: [], state: 'loading' };
