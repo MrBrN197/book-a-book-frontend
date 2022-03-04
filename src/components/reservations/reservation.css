@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .d-flex {
   display: flex;
 }
@@ -178,15 +184,15 @@ input:-webkit-autofill:active {
 
 .flash-notice {
   text-align: center;
-  margin: 1rem;
+  margin-top: 1rem;
   border: 1px solid var(--white);
   background-color: var(--green);
   color: var(--white);
   padding: 1rem;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 1;
+}
+
+.container {
+  width: 100% !important;
 }
 
 .none {

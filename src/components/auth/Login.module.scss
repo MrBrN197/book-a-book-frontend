@@ -49,8 +49,6 @@
       width: 100%;
 
       &:focus-visible {
-        // border-color: #1f6feb;
-        // box-shadow: 0 0 0 3px #0c2d6b;
         border-color: #97bf0f;
         box-shadow: 0 0 0 3px #4d6402;
       }
@@ -69,7 +67,6 @@
     .error {
       width: 100%;
       text-align: center;
-      // color: #0e1013;
       color: whitesmoke;
       border: 1px solid rgba(255, 129, 130, 0.4);
       background-color: #c58b85;

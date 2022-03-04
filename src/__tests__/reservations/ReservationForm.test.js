@@ -51,7 +51,6 @@ describe('Tests for ResrvationForm Component', () => {
         </Router>
       </Provider>,
     );
-    // const button = screen.getByText('BOOK NOW');
     expect(screen.getByTestId('map-reservation-title')).toBeInTheDocument();
     expect(screen.getByText('RESERVE THIS AMAZING BOOK')).toBeInTheDocument();
     expect(screen.getByText('BOOK NOW')).toBeInTheDocument();
