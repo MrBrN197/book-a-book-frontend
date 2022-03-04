@@ -57,7 +57,7 @@ const ReservationForm = () => {
         <form className="reservation-form" onSubmit={submitNewReservation}>
           <h2 className="reservation-header">RESERVE THIS AMAZING BOOK</h2>
           <hr className="line" align="center" />
-          <p className="description">
+          <p data-testid="map-reservation-title" className="description">
             Do you love reading books? Do you know that reading reduces stress,
             lowers blood pressure and heart rate?
             Boost your knowledge,

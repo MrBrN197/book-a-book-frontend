@@ -20,11 +20,18 @@ const ReservationsPage = () => {
 
   return (
     <>
-      <p className={noticeClass}>{location.state?.notice || ''}</p>
-      <Carousel posY={60}>
+      <p data-testid="map-notice" className={noticeClass}>{location.state?.notice || ''}</p>
+      <Carousel posY={48}>
         {reservationsReducer.map((reservation) => {
           const book = books.find((book) => book.id === reservation.book_id);
-          return <ReservationView reservation={reservation} book={book} key={reservation.id} />;
+          return (
+            <ReservationView
+              reservation={reservation}
+              book={book}
+              userId={user.id}
+              key={reservation.id}
+            />
+          );
         })}
       </Carousel>
     </>
