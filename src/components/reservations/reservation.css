@@ -222,7 +222,8 @@ img {
   flex-basis: 40%;
 }
 
-.book-details, .reservation-details {
+.book-details,
+.reservation-details {
   flex-direction: column;
 }
 
@@ -319,6 +320,7 @@ img {
   .reservationview-container {
     width: 100% !important;
   }
+
   .details-div {
     flex-basis: 60%;
   }
