@@ -5,6 +5,8 @@
 :root {
   --white: #fff;
   --green: #97bf0f;
+  --italianno: 'Italianno', cursive;
+  --gray: rgb(150, 150, 150);
 }
 
 .form-container {
@@ -174,6 +176,108 @@ input:-webkit-autofill:active {
   color: var(--white);
 }
 
+.flash-notice {
+  text-align: center;
+  margin: 1rem;
+  border: 1px solid var(--white);
+  background-color: var(--green);
+  color: var(--white);
+  padding: 1rem;
+}
+
+.none {
+  display: none;
+}
+
+.reservationview-container {
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+  padding: 2rem;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.img-placeholder {
+  overflow: hidden;
+  flex-grow: 1;
+  width: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+
+.details-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-basis: 40%;
+}
+
+.book-details,
+.reservation-details {
+  flex-direction: column;
+}
+
+.book-details h1 {
+  padding: 1rem 0 0.5rem 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.by {
+  font-size: 2rem;
+  font-family: var(--italianno);
+  font-weight: bold;
+}
+
+.author {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+.reservation-date {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--italianno);
+  font-weight: bold;
+}
+
+.word-date {
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.city {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.price {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-bottom: 4px dotted rgba(150, 150, 150, 0.4);
+  padding-bottom: 1rem;
+}
+
+.delete-btn {
+  margin-top: 1rem;
+  background-color: var(--green);
+  color: var(--white);
+  font-size: 1rem;
+  padding: 0.8rem;
+}
+
 @media screen and (min-width: 768px) {
   .line {
     margin: 1rem auto;
@@ -197,12 +301,35 @@ input:-webkit-autofill:active {
 
   .select-div::after {
     top: 1.3rem;
-    right: 2px;
+    right: 12px;
     font-size: 1rem;
   }
 
   .select-form {
-    text-align: start;
+    text-align: center;
     letter-spacing: 0;
+  }
+
+  .delete-btn {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .reservationview-container {
+    width: 100% !important;
+  }
+
+  .details-div {
+    flex-basis: 60%;
+  }
+
+  .reservation-details {
+    flex-basis: 30%;
+  }
+
+  .book-details {
+    flex-basis: 30%;
   }
 }

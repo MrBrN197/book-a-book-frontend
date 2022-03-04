@@ -1,6 +1,6 @@
 import * as API from '../../api/books-api';
 
-const GET_BOOKS = 'books/GET_BOOKS';
+export const GET_BOOKS = 'books/GET_BOOKS';
 const ADD_BOOK = 'books/ADD_BOOK';
 const DELETE_BOOK = 'books/REMOVE_BOOK';
 

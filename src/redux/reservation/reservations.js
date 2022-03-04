@@ -36,8 +36,8 @@ export const createReservation = (userId, reservation) => async (dispatch) => {
   dispatch(addReservation(newReservation));
 };
 
-export const deleteReservation = (id) => async (dispatch) => {
-  await API.deleteOneReservation(id);
+export const deleteReservation = (userId, id) => async (dispatch) => {
+  await API.deleteOneReservation(userId, id);
   dispatch(removeReservation(id));
 };
 

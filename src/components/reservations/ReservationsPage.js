@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { fetchReservations } from '../../redux/reservation/reservations';
 import { getCurrentUser } from '../auth/user';
 import ReservationView from './ReservationView';
+import Carousel from '../views/Carousel';
 
 const ReservationsPage = () => {
   const { booksReducer: { data: books }, reservationsReducer } = useSelector((state) => state);
@@ -15,15 +16,24 @@ const ReservationsPage = () => {
     dispatch(fetchReservations(user.id));
   }, [dispatch, user.id]);
 
+  const noticeClass = location.state ? 'flash-notice' : 'none';
+
   return (
     <>
-      <p>{location.state?.notice || ''}</p>
-      <>
+      <p data-testid="map-notice" className={noticeClass}>{location.state?.notice || ''}</p>
+      <Carousel posY={48}>
         {reservationsReducer.map((reservation) => {
           const book = books.find((book) => book.id === reservation.book_id);
-          return <ReservationView reservation={reservation} book={book} key={reservation.id} />;
+          return (
+            <ReservationView
+              reservation={reservation}
+              book={book}
+              userId={user.id}
+              key={reservation.id}
+            />
+          );
         })}
-      </>
+      </Carousel>
     </>
   );
 };
