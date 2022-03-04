@@ -13,19 +13,15 @@ import BookForm from './components/books/BookForm';
 
 import RemoveBookPage from './components/books/RemoveBookPage';
 
-const MainPage = () => <div>🐋 Main Page</div>;
-
 const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<Navbar />}>
+        <Route index element={<AuthRoute Component={<BookDetails />} />} />
         <Route path="login" element={<LoginPage />} />
-        <Route index element={<AuthRoute Component={<MainPage />} />} />
         <Route path="books" element={<BooksPage />} />
         <Route path="books/:book_id" element={<BookDetails />} />
         <Route path="books/new" element={<BookForm />} />
-
-        <Route path="books/new" element={<p>Add Book</p>} />
         <Route path="books/remove" element={<RemoveBookPage />} />
 
         <Route path="reservations" element={<AuthRoute Component={<ReservationsPage />} />} />
