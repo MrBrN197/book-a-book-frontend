@@ -183,6 +183,10 @@ input:-webkit-autofill:active {
   background-color: var(--green);
   color: var(--white);
   padding: 1rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
 }
 
 .none {
