@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@
 
 .book-form-container {
   position: relative;
-  height: fit-content;
+  height: max-content;
   flex-direction: column;
   justify-content: center;
   align-items: center;
