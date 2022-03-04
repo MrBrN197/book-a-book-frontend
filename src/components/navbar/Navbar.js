@@ -43,9 +43,14 @@ const Navbar = () => {
         <ul className={`${styles.links} ${navbarOpen ? styles.open : ''}`}>
           <IoMdClose onClick={toggleNavbar} className={`${styles.navicon} mobile-only`} />
           {links.map(([text, link]) => (
-            <li key={text}><Link to={link} onClick={closeModal}>{text}</Link></li>
+            <li
+              key={text}
+            >
+              <Link to={link} className={styles.link} onClick={closeModal}>{text}</Link>
+
+            </li>
           ))}
-          {user && <button type="submit" onClick={logOut}>Logout</button>}
+          {user && <button type="submit" className={styles.link} onClick={logOut}>Logout</button>}
         </ul>
         <section className="desktop-only">
           <ul className={styles.social}>

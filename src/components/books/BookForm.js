@@ -43,7 +43,6 @@ const BookForm = () => {
 
   const submitNewBook = async (e) => {
     e.preventDefault();
-    console.log('file', e.target.image);
     const file = e.target['image-upload'].files[0];
     const link = await uploadImage(file);
     if (!link) return;

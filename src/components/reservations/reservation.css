@@ -125,7 +125,7 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
 
 .select-form,
 #date {
-  width: 100%;
+  /* width: 100%; */
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -143,9 +143,16 @@ input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 #submit-btn {
   color: var(--green);
   font-weight: bold;
+  padding: 1rem 2rem;
 }
 
 #submit-btn:hover {
@@ -295,13 +302,10 @@ img {
   }
 
   .form-controls {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      '. . .'
-      '. button .';
-    grid-gap: 1rem;
     margin-top: 4.5rem;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2rem;
   }
 
   #submit-btn {
@@ -311,7 +315,7 @@ img {
 
   .select-div::after {
     top: 1.3rem;
-    right: 12px;
+    right: 1px;
     font-size: 1rem;
   }
 
@@ -324,9 +328,7 @@ img {
     font-size: 1.2rem;
     padding: 1rem;
   }
-}
 
-@media screen and (min-width: 992px) {
   .reservationview-container {
     width: 100% !important;
   }
@@ -343,3 +345,4 @@ img {
     flex-basis: 30%;
   }
 }
+

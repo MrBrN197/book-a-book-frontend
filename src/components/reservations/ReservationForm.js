@@ -71,6 +71,8 @@ const ReservationForm = () => {
             <div className="datetime">
               <input ref={datetimeEl} type="datetime-local" id="date" onChange={(e) => setDate(e.target.value)} value={date} />
             </div>
+          </div>
+          <div className="btn-div">
             <button type="submit" id="submit-btn">BOOK NOW</button>
           </div>
         </form>
