@@ -35,7 +35,12 @@
 
   h1 {
     padding: 2rem 0;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+
+    @media screen and (min-width: 992px) {
+      font-size: 1.2rem;
+    }
+
     text-transform: uppercase;
   }
 

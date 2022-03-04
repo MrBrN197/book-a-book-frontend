@@ -13,10 +13,20 @@
   @extend .btn;
 
   color: white;
-  background-color: rgb(54, 112, 37);
   background-color: $green;
 }
 
 .btn-primary:active {
   background-color: lighten($green, 5%);
+}
+
+.btn-danger {
+  @extend .btn;
+
+  background-color: crimson;
+  color: white;
+}
+
+.btn-danger:active {
+  background-color: lighten(crimson, 5%);
 }
