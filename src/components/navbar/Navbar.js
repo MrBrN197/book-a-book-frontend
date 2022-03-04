@@ -11,6 +11,18 @@ const Navbar = () => {
     setNavbarOpen((s) => !s);
   };
 
+  const closeModal = () => {
+    setNavbarOpen(false);
+  };
+
+  const links = [
+    ['BOOKS', '/books'],
+    ['MY RESERVATIONS', '/reservations'],
+    ['ADD BOOK', '/books/new'],
+    ['DELETE BOOK', '/books/remove'],
+    ['RESERVE BOOK', 'reservations/new'],
+  ];
+
   return (
     <div className={styles.App}>
       <section className={styles.navbar}>
@@ -18,11 +30,9 @@ const Navbar = () => {
         <Link to="/"><h1>Book A Book</h1></Link>
         <ul className={`${styles.links} ${navbarOpen ? styles.open : ''}`}>
           <IoMdClose onClick={toggleNavbar} className={`${styles.navicon} mobile-only`} />
-          <li><Link to="/books">BOOKS</Link></li>
-          <li><Link to="/reservations">MY RESERVATIONS</Link></li>
-          <li><Link to="/books/new">ADD BOOK</Link></li>
-          <li><Link to="/books/remove">DELETE BOOK</Link></li>
-          <li><Link to="/reservations/new">RESERVE BOOK</Link></li>
+          {links.map(([text, link]) => (
+            <li key={text}><Link to={link} onClick={closeModal}>{text}</Link></li>
+          ))}
         </ul>
         <section className="desktop-only">
           <ul className={styles.social}>

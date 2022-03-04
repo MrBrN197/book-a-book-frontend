@@ -285,7 +285,7 @@ img {
   }
 
   .form-controls {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
       '. . .'
