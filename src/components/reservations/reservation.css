@@ -1,0 +1,347 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+:root {
+  --white: #fff;
+  --green: #97bf0f;
+  --italianno: 'Italianno', cursive;
+  --gray: rgb(150, 150, 150);
+}
+
+.form-container {
+  position: relative;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(/public/assets/Book_background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(150, 191, 15, 0.55);
+}
+
+.reservation-form {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.reservation-header {
+  color: var(--white);
+  text-align: center;
+}
+
+.line {
+  margin-top: 1rem;
+  opacity: 0.5;
+  background-color: var(--white);
+}
+
+.description {
+  text-align: justify;
+  color: var(--white);
+  line-height: 1.7rem;
+  font-size: 1.2rem;
+  margin: 1.3rem 0;
+}
+
+.form-controls {
+  flex-direction: column;
+}
+
+.select-div,
+.datetime {
+  position: relative;
+  display: block;
+}
+
+.select-div::after {
+  content: '\25BC';
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  bottom: 0;
+  padding: 0 1em;
+  background: transparent;
+  pointer-events: none;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.datetime::after {
+  content: '📅';
+  position: absolute;
+  top: 16px;
+  right: 0;
+  padding: 0 1em;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.select-div:hover::after {
+  color: var(--white);
+}
+
+input[type="datetime-local" i]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+#city,
+#submit-btn,
+.datetime,
+.select-div {
+  padding: 1rem;
+  border: none;
+  border-radius: 35px;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+#city,
+.datetime,
+.select-div {
+  background-color: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--white);
+  outline: 0;
+}
+
+.select-form,
+#date {
+  /* width: 100%; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  height: 100%;
+  background-color: transparent;
+  font-size: 1.3rem;
+  border: none;
+  font-weight: bold;
+}
+
+.select-form::-ms-expand,
+#date::-ms-expand {
+  display: none;
+}
+
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+#submit-btn {
+  color: var(--green);
+  font-weight: bold;
+  padding: 1rem 2rem;
+}
+
+#submit-btn:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+#city::placeholder,
+.select-form {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--white);
+  letter-spacing: 0.25rem;
+  opacity: 0.8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--green) inset !important;
+  -webkit-text-fill-color: var(--white) !important;
+}
+
+#date {
+  font-weight: bold;
+  color: var(--white);
+  text-align: center;
+}
+
+.option {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.flash-notice {
+  text-align: center;
+  margin-top: 1rem;
+  border: 1px solid var(--white);
+  background-color: var(--green);
+  color: var(--white);
+  padding: 1rem;
+}
+
+.container {
+  width: 100% !important;
+}
+
+.none {
+  display: none;
+}
+
+.reservationview-container {
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+  padding: 2rem;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.img-placeholder {
+  overflow: hidden;
+  flex-grow: 1;
+  width: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+
+.details-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-basis: 40%;
+}
+
+.book-details,
+.reservation-details {
+  flex-direction: column;
+}
+
+.book-details h1 {
+  padding: 1rem 0 0.5rem 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.by {
+  font-size: 2rem;
+  font-family: var(--italianno);
+  font-weight: bold;
+}
+
+.author {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+.reservation-date {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--italianno);
+  font-weight: bold;
+}
+
+.word-date {
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.city {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.price {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-bottom: 4px dotted rgba(150, 150, 150, 0.4);
+  padding-bottom: 1rem;
+}
+
+.delete-btn {
+  margin-top: 1rem;
+  background-color: var(--green);
+  color: var(--white);
+  font-size: 1rem;
+  padding: 0.8rem;
+}
+
+@media screen and (min-width: 768px) {
+  .line {
+    margin: 1rem auto;
+    width: 50%;
+  }
+
+  .form-controls {
+    margin-top: 4.5rem;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  #submit-btn {
+    grid-area: button;
+    margin-top: 2.5rem;
+  }
+
+  .select-div::after {
+    top: 1.3rem;
+    right: 1px;
+    font-size: 1rem;
+  }
+
+  .select-form {
+    text-align: center;
+    letter-spacing: 0;
+  }
+
+  .delete-btn {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .reservationview-container {
+    width: 100% !important;
+  }
+
+  .details-div {
+    flex-basis: 60%;
+  }
+
+  .reservation-details {
+    flex-basis: 30%;
+  }
+
+  .book-details {
+    flex-basis: 30%;
+  }
+}
