@@ -1,0 +1,34 @@
+@use './colors' as *;
+
+.btn {
+  cursor: pointer;
+  transition: background-color 240ms;
+
+  &:disabled {
+    background-color: rgb(119, 119, 119);
+  }
+}
+
+.btn-primary {
+  @extend .btn;
+
+  color: white;
+  background-color: $green;
+}
+
+.btn-primary:active {
+  background-color: lighten($green, 5%);
+}
+
+.btn-danger {
+  @extend .btn;
+
+  background-color: crimson;
+  color: white;
+}
+
+.btn-danger:active {
+  $crimson: crimson;
+
+  background-color: lighten($crimson, 5%);
+}

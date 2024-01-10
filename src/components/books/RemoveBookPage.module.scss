@@ -1,0 +1,47 @@
+@use '../colors' as *;
+
+@import '../base';
+
+.errorMessage {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: $green;
+  border-radius: 0.4em;
+  padding: 0.6em;
+  color: white;
+  margin-top: 1rem;
+}
+
+.remove {
+  position: relative;
+
+  .btn {
+    @extend .btn-danger;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4em;
+    font-weight: bold;
+    width: max-content;
+  }
+
+  .scrim {
+    opacity: 0.5;
+    background-color: rebeccapurple;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 200ms;
+    z-index: -1;
+  }
+
+  .btn:hover ~ * {
+    background-color: red;
+    opacity: 1;
+  }
+}

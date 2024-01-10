@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Book A Book Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Book A Book Final Capstone Frontend
 
-## Available Scripts
+Link to Backend [Project](https://github.com/MrBrN197/book-a-book)
 
-In the project directory, you can run:
 
-### `npm start`
+Link to Original Kanban https://github.com/MrBrN197/book-a-book/issues/19
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Link to Finished Kanban https://github.com/MrBrN197/book-a-book/projects/1
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> "Book A Book" is a Single Page App (SPA) that allows users to make reservations of books. it uses a ruby on rails [backend API](https://github/MrBrN197/book-a-book)
 
-### `npm test`
+## Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJS
+- React Router
+- Redux
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get a local copy up and running follow these simple example steps.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/MrBrN197/book-a-book-frontend.git
+cd book-a-book-frontend
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+and then to start a live server run
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+to build a production version to `bulid` folder run
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Authors
 
-## Learn More
+👤 **Brian Orora**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [@MrBrN197](https://github.com/MrBrN197)
+- Twitter: [@MrBrN197](https://twitter.com/MrBrN197)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/brian-orora-2b7883a7/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+👤 **Francis Ugorji**
 
-### Code Splitting
+- GitHub: [@Gambit142](https://github.com/Gambit142)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/francis-ugorji/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🤝 Contributing
 
-### Analyzing the Bundle Size
+Contributions, issues, and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to check the [issues page](../../issues/).
 
-### Making a Progressive Web App
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Give a ⭐️ if you like this project!
 
-### Advanced Configuration
+## Acknowledgements
+- Design Reference by [Murat Kormaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
