@@ -51,7 +51,7 @@ npm run build
 
 👤 **Francis Ugorji**
 
-- GitHub: [@MrBrN197](https://github.com/Gambit142)
+- GitHub: [@Gambit142](https://github.com/Gambit142)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/francis-ugorji/)
 
 ## 🤝 Contributing
